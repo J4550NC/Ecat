@@ -1,0 +1,78 @@
+!SESSION 2018-03-21 10:10:11.971 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180301-0715
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_CO
+Framework arguments:  -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:10:26.382
+!MESSAGE System property http.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:10:26.382
+!MESSAGE System property http.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:10:26.383
+!MESSAGE System property https.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:10:26.383
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:10:26.397
+!MESSAGE System property https.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:10:26.397
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+!SESSION 2018-03-21 10:23:11.522 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180301-0715
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_CO
+Framework arguments:  -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -data file:/home/brm/eclipse-workspace/ -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:23:17.037
+!MESSAGE System property http.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:23:17.037
+!MESSAGE System property http.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:23:17.037
+!MESSAGE System property https.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:23:17.037
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:23:17.039
+!MESSAGE System property https.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-03-21 10:23:17.039
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+!SESSION 2018-04-05 11:47:28.241 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180301-0715
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_CO
+Framework arguments:  -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.core.resources 2 10035 2018-04-05 11:47:46.872
+!MESSAGE The workspace exited with unsaved changes in the previous session; refreshing workspace to recover changes.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 11:47:49.080
+!MESSAGE System property http.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 11:47:49.080
+!MESSAGE System property http.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 11:47:49.081
+!MESSAGE System property https.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 11:47:49.081
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 11:47:49.082
+!MESSAGE System property https.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 11:47:49.082
+!MESSAGE System property https.proxyPort is not set but should be 8080.
