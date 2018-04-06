@@ -1,4 +1,4 @@
-# List of external plug-in models previously loaded. Timestamp: 1522946882873
+# List of external plug-in models previously loaded. Timestamp: 1522960970069
 file:/home/brm/.p2/pool/plugins/ch.qos.logback.classic_1.0.7.v20121108-1250.jar
 file:/home/brm/.p2/pool/plugins/ch.qos.logback.core_1.0.7.v20121108-1250.jar
 file:/home/brm/.p2/pool/plugins/ch.qos.logback.slf4j_1.0.7.v201505121915.jar
@@ -18,6 +18,7 @@ file:/home/brm/.p2/pool/plugins/javax.el_2.2.0.v201303151357.jar
 file:/home/brm/.p2/pool/plugins/javax.inject_1.0.0.v20091030.jar
 file:/home/brm/.p2/pool/plugins/javax.servlet_3.1.0.v201410161800.jar
 file:/home/brm/.p2/pool/plugins/javax.servlet.jsp_2.2.0.v201112011158.jar
+file:/home/brm/.p2/pool/plugins/javax.wsdl_1.5.1.v201012040544.jar
 file:/home/brm/.p2/pool/plugins/javax.xml_1.3.4.v201005080400.jar
 file:/home/brm/.p2/pool/plugins/org.antlr.runtime_4.3.0.v201502022030.jar
 file:/home/brm/.p2/pool/plugins/org.antlr.runtime_3.2.0.v201101311130.jar
@@ -67,6 +68,16 @@ file:/home/brm/.p2/pool/plugins/org.eclipse.acceleo.ui.interpreter_3.7.2.2017082
 file:/home/brm/.p2/pool/plugins/org.eclipse.ant.core_3.5.0.v20170509-2149.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.ant.launching_1.2.1.v20171108-0853.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.ant.ui_3.7.0.v20170412-1054.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2_1.4.0.Final-v20170607-1423.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.edit_1.4.0.Final-v20170607-1423.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.editor_1.4.0.Final-v20170607-1423.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.core_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.examples.customtask_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.examples.dynamic_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.examples.modelreader_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.help_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.runtime.jboss.jbpm_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.ui_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.buildship.branding_2.2.1.v20180125-1441.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.buildship.core_2.2.1.v20180125-1441.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.buildship.stsmigration_2.2.1.v20180125-1441.jar
@@ -305,6 +316,9 @@ file:/home/brm/.p2/pool/plugins/org.eclipse.gmf.runtime.gef.ui_1.7.0.20170606143
 file:/home/brm/.p2/pool/plugins/org.eclipse.gmf.runtime.notation_1.8.0.201706061354.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.gmf.runtime.notation.edit_1.7.0.201706061354.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.gmf.runtime.notation.providers_1.7.0.201706061437.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.graphiti_0.14.0.201705161212.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.graphiti.mm_0.14.0.201705161212.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.graphiti.ui_0.14.0.201705161212.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.help_3.8.1.v20170815-1448.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.help.base_4.2.103.v20180301-0715.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.help.ui_4.1.0.v20170311-0931.jar
@@ -553,6 +567,7 @@ file:/home/brm/.p2/pool/plugins/org.eclipse.wst.standard.schemas_1.0.800.v201706
 file:/home/brm/.p2/pool/plugins/org.eclipse.wst.validation_1.2.701.v201707142105.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.wst.validation.infopop_1.0.300.v201309101952.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.wst.validation.ui_1.2.501.v201707142105.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.wst.wsdl_1.2.500.v201710302117.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.wst.xml.core_1.1.1101.v201711080222.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.wst.xml.ui_1.1.800.v201704102213.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.wst.xml.ui.infopop_1.0.400.v201707252002.jar
@@ -673,6 +688,13 @@ file:/home/brm/.p2/pool/plugins/org.apiguardian.source_1.0.0.v20170910-2246.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.ant.core.source_3.5.0.v20170509-2149.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.ant.launching.source_1.2.1.v20171108-0853.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.ant.ui.source_3.7.0.v20170412-1054.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.core.source_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.examples.customtask.source_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.examples.dynamic.source_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.examples.modelreader.source_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.help.source_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.runtime.jboss.jbpm.source_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
+file:/home/brm/.p2/pool/plugins/org.eclipse.bpmn2.modeler.ui.source_1.4.2.SNAPSHOT-v20180116-1616-B1.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.compare.core.source_3.6.100.v20170516-0820.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.compare.source_3.7.101.v20170724-1603.jar
 file:/home/brm/.p2/pool/plugins/org.eclipse.core.commands.source_3.9.0.v20170530-1048.jar

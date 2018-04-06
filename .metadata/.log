@@ -76,3 +76,34 @@ Command-line arguments:  -os linux -ws gtk -arch x86_64 -product org.eclipse.epp
 
 !ENTRY org.eclipse.core.net 1 0 2018-04-05 11:47:49.082
 !MESSAGE System property https.proxyPort is not set but should be 8080.
+!SESSION 2018-04-05 15:42:31.202 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180301-0715
+java.version=1.8.0_161
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_CO
+Framework arguments:  -product org.eclipse.epp.package.dsl.product
+Command-line arguments:  -data file:/home/brm/eclipse-workspace/ -os linux -ws gtk -arch x86_64 -product org.eclipse.epp.package.dsl.product
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 15:42:39.912
+!MESSAGE System property http.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 15:42:39.922
+!MESSAGE System property http.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 15:42:39.922
+!MESSAGE System property https.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 15:42:39.922
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 15:42:39.933
+!MESSAGE System property https.proxyHost is not set but should be 10.140.10.4.
+
+!ENTRY org.eclipse.core.net 1 0 2018-04-05 15:42:39.934
+!MESSAGE System property https.proxyPort is not set but should be 8080.
+
+!ENTRY org.eclipse.eef.core 4 0 2018-04-05 15:43:13.618
+!MESSAGE The expression 'var:value' should return a value with the type java.lang.String, it has returned instead ecore.xml.type:comment= origin at X=0.0 Y=0.0 
+
+!ENTRY org.eclipse.eef.core 4 0 2018-04-05 15:43:13.673
+!MESSAGE The expression 'var:value' should return a value with the type java.lang.String, it has returned instead bpmn2:definitions=org.eclipse.bpmn2.impl.DefinitionsImpl@61d42e9a (id: Definitions_1, anyAttribute: []) (exporter: org.eclipse.bpmn2.modeler.core, exporterVersion: 1.4.2.SNAPSHOT-v20180116-1616-B1, expressionLanguage: http://www.w3.org/1999/XPath, name: null, targetNamespace: http://org.eclipse.bpmn2/default/process, typeLanguage: http://www.w3.org/2001/XMLSchema)

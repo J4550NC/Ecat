@@ -1,0 +1,758 @@
+<?xml version='1.0' encoding='ISO-8859-1' ?>
+<TipoFormulario tipo='FURTRAN' version='3.0' numeroRegistros='50' archivoGlosas='GlosasFURTRAN' cifrado='true' compresion='true'>
+  <FormatoPaquete>
+    <ParamPaquete nombre='TipoArchivo' valor='FURTRAN' />
+    <ParamPaquete nombre='ValoresExtraerNombre' valor='(FURTRAN|furtran)#([0-9]{20})\.' />
+    <ParamPaquete nombre='FormatoNombrePaquete' valor='(0)(1)pak' />
+  </FormatoPaquete>
+  <Filtros>
+    <Filtro descripcion='FURTRAN' comodin='^(FURTRAN|furtran)([0-9]{20})\.(txt|TXT)$' />
+  </Filtros>
+
+  <Archivos>
+    <!--TODO: La expresion regular del nombre del archivo debe estar conformada por tres partes: Fija que identifica tipo de archivo, Variable que identifica el archivo y la extension(.txt)-->
+    <!--TODO: En la validacion FormatoCampo, si el campo es vacio o null se cumple con la validacion. Si no es vacio se aplica la expresion regular-->
+    <!--TODO: En la validacion EnRangoValoresNumerico, Si valor Valor Minimo es omitido se asigna valor minimo del sistema . Si valor maximo es omitido se toma el valor del campo especificado en el parametro CampoConValorMAximo, si este ultimo no es especificado en la configuracion se toma el  valor maximo del sistema-->
+    <!--TODO: La longitud minima y maxima de la validacion de expresion regular del campo deben estar disminuidas en uno para que funciones.-->
+    <!--TODO: Cuando en una validacion aparecen los parametros DependenciaCampo y ValorDependenciaCampo, la validacion se cumple dependiendo de los valores que tomen el campo en DependenciaCAmpo. Si los parametros Dependencia y ValoresDependencia no estan explicitos se valida comun y corriente-->
+    <!--TODO: El parametro Glosa toma un solo valor-->
+    <!--TODO: El parametro ValorDependenciaCampo, puede tomar varios valores separados por coma-->
+    <!--TODO: El parametro Tabla puede tomar varios valores separados por coma-->
+    <!--TODO: En la validacion LongitudCampo, cuando no se especifica el parametro LongitudMinima, el sistema asigna el valor 0. Cuanfo no se especifica el parametro LongitudMaxima, el sistema asigna el maximo valor permitido para un campo entero. -->
+    <!--TODO: En la validacion FechaCampoMayorAOtra, la fecha del campo debe estar entre fecha minima y la fecha de otro campo. La fecha minima por omision es la fecha minima del sistema. Cuando se omite CampoFechaMaxima, se toma la fecha actual del sistema-->
+    <Archivo tipo='FURTRAN' numeroCampos='34' esObligatorio='true' longitudNombre='27' formatoNombre='^(FURTRAN|furtran)(\d{20})(\.txt|\.TXT)$' delimitador=',' conjuntoCaracteres='ISO-8859-1' codigosGlosa='GE0000'>
+    <Campo orden='0' descripcion='No. Radicado Anterior' >
+        <validacion clase='LongitudCampo' Glosa='GE0018'  >
+            <param nombre='LongitudMinima' valor='0' />
+            <param nombre='LongitudMaxima' valor='10' />				
+        </validacion>
+        <validacion clase='FormatoCampo' Glosa='GE0019' >
+            <param nombre='ExpresionRegular' valor='^[0-9]*$' />			
+        </validacion>
+        <validacion clase='CampoObligatorio' Glosa='GE0055' >		    
+		    <param nombre='DependenciaCampo' valor='1' />
+            <param nombre='ValorDependenciaCampo' valor='0,1' />
+        </validacion>
+		<!--inicio Modificado por CDV 13/04/2016-->	
+		<validacion clase='FormatoCampo' Glosa='GE0023' >
+			<param nombre='ExpresionRegular' valor='^[^.]{0,0}$' />
+			<param nombre='DependenciaCampo' valor='1' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		<!--fin Modificado por CDV 13/04/2016-->	
+	</Campo>
+
+    <Campo orden='1' descripcion='RG' >
+		<validacion clase='ValorNoPermitidoIgnoreCase' Glosa='GE0020' >
+			<param nombre='Tabla' valor='RG' />
+		</validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0021'>
+			<param nombre='LongitudMinima' valor='0' />
+			<param nombre='LongitudMaxima' valor='1' />
+		</validacion>
+    </Campo>
+
+    <Campo orden='2' descripcion='Nombre de la empresa de transporte o persona reclamante' >
+		<validacion clase='CampoObligatorio' Glosa='GE0067' >
+			<param nombre='DependenciaCampo' valor='10' />
+			<param nombre='ValorDependenciaCampo' valor='1,2' />
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0022'  >
+			<param nombre='LongitudMinima' valor='0' />
+			<param nombre='LongitudMaxima' valor='60' />
+			<param nombre='DependenciaCampo' valor='10' />
+			<param nombre='ValorDependenciaCampo' valor='1,2' />
+        </validacion>
+	</Campo>
+
+    <Campo orden='3' descripcion='Código Habilitación'>
+        <validacion clase='CampoObligatorio' Glosa='GE0067' >
+          <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='1,2' />
+        </validacion>
+		
+		 <validacion clase='LongitudCampo' Glosa='GE0036'  >
+           <param nombre='LongitudMinima' valor='1' />
+           <param nombre='LongitudMaxima' valor='12' />
+		   <param nombre='DependenciaCampo' valor='10' />
+           <param nombre='ValorDependenciaCampo' valor='1,2' />
+		</validacion>
+		
+        <validacion clase='ValorNoPermitidoCodigoHab' Glosa='GE0038'>
+          <param nombre='Tabla' valor='CodigoHabilitacionIps' /> 
+          <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='1,2' />
+        </validacion>
+		
+		<validacion clase='ValorNoPermitidoCodigoHab' Glosa='GE0068'>
+          <param nombre='Tabla' valor='EstadoRegistroIps' /> 
+          <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='1,2' />
+        </validacion>
+		
+		<validacion clase='LongitudCampo' Glosa='GE0037'  >
+          <param nombre='LongitudMinima' valor='12' />
+          <param nombre='LongitudMaxima' valor='12' />
+		  <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='1,2' />
+        </validacion>
+		
+		<validacion clase='FormatoCampo' Glosa='GE0024' >
+          <param nombre='ExpresionRegular' valor='^[0-9]*$' />  
+          <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='1,2' />		  
+        </validacion>
+    </Campo>
+      
+     <Campo orden='4' descripcion='Primer apellido persona natural reclamante'>
+		<validacion clase='FormatoCampo' Glosa='GE0058' >
+          <param nombre='ExpresionRegular' valor='^[^.]{2,}' />
+		  <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='3,4,5,7,8,9,10' />
+        </validacion>
+		<validacion clase='FormatoCampo' Glosa='GE0046' >
+          <param nombre='ExpresionRegular' valor='^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñ ]*$' />
+          <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='3,4,5,7,8,9,10' />
+        </validacion>			
+      </Campo>
+
+      <Campo orden='5' descripcion='Segundo apellido persona natural reclamante'>
+        <validacion clase='FormatoCampo' Glosa='GE0059' >
+          <param nombre='ExpresionRegular' valor='^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñ ]*$' />		
+        </validacion>		
+      </Campo>
+
+      <Campo orden='6' descripcion='Primer nombre persona natural reclamante' >
+	  
+		<validacion clase='CampoObligatorio' Glosa='GE0067' >
+          <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='3,4,5,7,8,9,10' />
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0057' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='20' />
+        </validacion>
+		<validacion clase='FormatoCampo' Glosa='GE0058' >
+          <param nombre='ExpresionRegular' valor='^[^.]{2,}' />
+		  <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='3,4,5,7,8,9,10' />
+        </validacion>
+		<validacion clase='FormatoCampo' Glosa='GE0059' >
+          <param nombre='ExpresionRegular' valor='^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñ ]*$' />
+          <!-- <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='3,4,5,7,8,9,10' /> -->
+        </validacion>		
+      </Campo>
+      
+      <Campo orden='7' descripcion='Segundo nombre persona natural reclamante' >
+		<validacion clase='LongitudCampo' Glosa='GE0039' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='30' />
+        </validacion>
+       	
+		<validacion clase='FormatoCampo' Glosa='GE0040' >
+          <param nombre='ExpresionRegular' valor='^[^0-9]*$' />   
+	    </validacion>
+		<validacion clase='FormatoCampo' Glosa='GE0056' >
+          <param nombre='ExpresionRegular' valor='^[0-9a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñ ]*$' />   
+	    </validacion>		
+      </Campo>
+
+      <Campo orden='8' descripcion='Tipo documento reclamante' >
+	  <validacion clase="FormatoCampo" Glosa="GE0004" >
+            <param nombre='ExpresionRegular' valor='^[0-9a-zA-Z]*$' />
+			<param nombre='DependenciaCampo' valor='2' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		<validacion clase="FormatoCampo" Glosa="GE0004" >
+            <param nombre='ExpresionRegular' valor='^[0-9a-zA-Z]*$' />
+			<param nombre='DependenciaCampo' valor='3' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		
+		<validacion clase="FormatoCampo" Glosa="GE0004" >
+            <param nombre='ExpresionRegular' valor='^[0-9a-zA-Z]*$' />
+			<param nombre='DependenciaCampo' valor='4' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		
+		<validacion clase="FormatoCampo" Glosa="GE0004" >
+            <param nombre='ExpresionRegular' valor='^[0-9a-zA-Z]*$' />
+			<param nombre='DependenciaCampo' valor='5' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		
+		<validacion clase="FormatoCampo" Glosa="GE0004" >
+            <param nombre='ExpresionRegular' valor='^[0-9a-zA-Z]*$' />
+			<param nombre='DependenciaCampo' valor='6' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		
+		<validacion clase="FormatoCampo" Glosa="GE0004" >
+            <param nombre='ExpresionRegular' valor='^[0-9a-zA-Z]*$' />
+			<param nombre='DependenciaCampo' valor='7' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+          <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='3,4,5,7,8,9,10' />
+        </validacion>
+		
+		<validacion clase='LongitudCampo' Glosa='GE0031'  >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='2' />
+		  <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='3,4,5,7,8,9,10' />
+        </validacion>
+		
+		<validacion clase='ValorNoPermitidoIgnoreCase' Glosa='GE0047' >
+          <param nombre='Tabla' valor='TipoDocumentoReclamante' />
+          <param nombre='DependenciaCampo' valor='10'/>
+          <param nombre='ValorDependenciaCampo' valor='3,4,5,7,8,9,10' />
+        </validacion>
+		<!--inicio Modificado por CDV 13/04/2016-->	
+		<validacion clase='CampoObligatorio' Glosa='GE0004' >
+			<param nombre='DependenciaCampo' valor='2' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		<validacion clase='CampoObligatorio' Glosa='GE0004' >
+			<param nombre='DependenciaCampo' valor='3' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		
+		<validacion clase='LongitudCampo' Glosa='GE0062' >
+			<param nombre='LongitudMinima' valor='0' />
+			<param nombre='LongitudMaxima' valor='0' />
+			<param nombre='DependenciaCampo' valor='2' />
+			<param nombre='ValorDependenciaCampo' valor='0' />
+			<param nombre='OperadorDependenciaCampo' valor='LongitudMayor' />
+        </validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0063' >
+			<param nombre='LongitudMinima' valor='0' />
+			<param nombre='LongitudMaxima' valor='0' />
+			<param nombre='DependenciaCampo' valor='3' />
+			<param nombre='ValorDependenciaCampo' valor='0' />
+			<param nombre='OperadorDependenciaCampo' valor='LongitudMayor' />
+        </validacion>
+		<!--Fin Modificado por CDV 13/04/2016-->
+      </Campo>
+
+      <Campo orden='9' descripcion='Numero documento reclamante' >
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+          <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='3,4,5,7,8,9,10' />
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0044' >
+          <param nombre='LongitudMinima' valor='1' />
+          <param nombre='LongitudMaxima' valor='8' />
+          <param nombre='DependenciaCampo' valor='8' />
+          <param nombre='ValorDependenciaCampo' valor='CE' />
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0044' >
+          <param nombre='LongitudMinima' valor='3' />
+          <param nombre='LongitudMaxima' valor='10' />
+          <param nombre='DependenciaCampo' valor='8' />
+          <param nombre='ValorDependenciaCampo' valor='CC' />
+        </validacion>	
+        <validacion clase='LongitudCampo' Glosa='GE0044' >
+          <param nombre='LongitudMinima' valor='1' />
+          <param nombre='LongitudMaxima' valor='16' />
+          <param nombre='DependenciaCampo' valor='8' />
+          <param nombre='ValorDependenciaCampo' valor='PA' />
+        </validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0044' >
+          <param nombre='LongitudMinima' valor='1' />
+          <param nombre='LongitudMaxima' valor='11' />
+          <param nombre='DependenciaCampo' valor='8' />
+          <param nombre='ValorDependenciaCampo' valor='CD,TI,RC' />
+        </validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0044' >
+          <param nombre='LongitudMinima' valor='1' />
+          <param nombre='LongitudMaxima' valor='10' />
+          <param nombre='DependenciaCampo' valor='8' />
+          <param nombre='ValorDependenciaCampo' valor='AS' />
+        </validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0044' >
+          <param nombre='LongitudMinima' valor='1' />
+          <param nombre='LongitudMaxima' valor='12' />
+          <param nombre='DependenciaCampo' valor='8' />
+          <param nombre='ValorDependenciaCampo' valor='MS' />
+        </validacion>
+		<!--FORMATO DE CAMPO-->
+		<validacion clase="FormatoCampo" Glosa="GE0019" >
+            <param nombre='ExpresionRegular' valor='^[0-9]*$' />	
+            <param nombre="DependenciaCampo" valor="8" />
+            <param nombre="ValorDependenciaCampo" valor="CC" />
+        </validacion>
+		<validacion clase="FormatoCampo" Glosa="GE0056" >
+            <param nombre='ExpresionRegular' valor='^[0-9a-zA-Z]*$' />
+            <param nombre="DependenciaCampo" valor="8" />
+            <param nombre="ValorDependenciaCampo" valor="CE,PA" />
+        </validacion>
+		<validacion clase="FormatoCampo" Glosa="GE0044" >
+            <param nombre='ExpresionRegular' valor='^[0-9a-zA-Z]*$' />
+            <param nombre="DependenciaCampo" valor="8" />
+        </validacion>
+	
+		<validacion clase='CampoObligatorio' Glosa='GE0004' >
+			<param nombre='DependenciaCampo' valor='2' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		<validacion clase='CampoObligatorio' Glosa='GE0004' >
+			<param nombre='DependenciaCampo' valor='3' />
+			<param nombre='ValorDependenciaCampo' valor='' />
+        </validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0063' >
+			<param nombre='LongitudMinima' valor='0' />
+			<param nombre='LongitudMaxima' valor='0' />
+			<param nombre='DependenciaCampo' valor='3' />
+			<param nombre='ValorDependenciaCampo' valor='0' />
+			<param nombre='OperadorDependenciaCampo' valor='LongitudMayor' />
+        </validacion>
+      </Campo>
+
+      <Campo orden='10' descripcion='Tipo servicio'>
+        <validacion clase='CampoObligatorio' Glosa='GE0048' >
+        </validacion>
+		
+		 <validacion clase='LongitudCampo' Glosa='GE0041'  >
+           <param nombre='LongitudMinima' valor='0' />
+           <param nombre='LongitudMaxima' valor='1' />
+		</validacion>
+		
+        <validacion clase='ValorNoPermitidoIgnoreCase' Glosa='GE0042' >
+          <param nombre='Tabla' valor='TipoDeServicioFURTRAN' />
+        </validacion>
+      </Campo>
+     
+      <Campo orden='11' descripcion='Otro servicio'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+          <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='0' />
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0005' >
+          <param nombre='LongitudMinima' valor='1' />
+          <param nombre='LongitudMaxima' valor='20' />
+          <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='0' />
+        </validacion>
+        <validacion clase='FormatoCampo' Glosa='GE0001' >
+          <param nombre='ExpresionRegular' valor='^[a-zA-ZñÑ ]*$' />
+		  <param nombre='DependenciaCampo' valor='10' />
+          <param nombre='ValorDependenciaCampo' valor='0' />
+        </validacion>
+		<!--inicio Modificado por CDV 13/04/2016-->	
+		<validacion clase='FormatoCampo' Glosa='GE0061' >
+			<param nombre='ExpresionRegular' valor='^[^.]{0,0}$' />
+			<param nombre='DependenciaCampo' valor='10' />
+			<param nombre='ValorDependenciaCampo' valor='1,2,3,4,5,6,7,8,9' />
+        </validacion>
+		<!--Fin Modificado por CDV 13/04/2016-->	
+      </Campo>           
+
+      <Campo orden='12' descripcion='Placa vehiculo'>
+        <validacion clase='CampoObligatorio' Glosa='GE0028' >
+        </validacion>
+		 <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+        <!-- <validacion clase='LongitudCampo' Glosa='GE0043' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='10' />
+        </validacion> -->
+        <validacion clase='FormatoCampo' Glosa='GE0049' >
+          <param nombre='ExpresionRegular' valor='^[0-9a-zA-ZñÑ]*$' /> 
+        </validacion>
+        <!-- <validacion clase='LongitudCampo' Glosa='GE0029' >
+          <param nombre='LongitudMinima' valor='1' />
+          <param nombre='LongitudMaxima' valor='6' />
+        </validacion>	 -->	
+		<!--inicio Modificado por CDV 13/04/2016-->	
+		<!--VERONICA RESTREPO-->	
+		<validacion Glosa="GE0064" clase="LongitudCampo">
+		  <param nombre='LongitudMinima' valor='5' />
+          <param nombre='LongitudMaxima' valor='10' />
+		</validacion>
+		<validacion Glosa="GE0008" clase="FormatoCampo">
+		  <param valor="^[0-9]+[a-zA-ZñÑ]+([ñÑ]*[\w]*)*$|^[a-zA-ZñÑ]+[0-9]+([ñÑ]*[\w]*)*$" nombre="ExpresionRegular"/>
+		</validacion>
+		<!--Fin Modificado por CDV 13/04/2016-->
+      </Campo>
+      
+      <Campo orden='13' descripcion='Dirección' >
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+		</validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0030' >
+          <param nombre='LongitudMinima' valor='2' />
+          <param nombre='LongitudMaxima' valor='40' />
+        </validacion>
+        <!--inicio Modificado por CDV 13/04/2016-->	
+		<!--VERONICA RESTREPO-->	
+		<validacion clase='FormatoCampo' Glosa='GE0053' >
+          <param nombre='ExpresionRegular' valor='^[0-9a-zA-ZñÑ\-\# ]*$' />' />
+        </validacion>
+		<!--Fin Modificado por CDV 13/04/2016-->
+	  </Campo>
+
+      <Campo orden='14' descripcion='Teléfono' >
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+		</validacion>
+		<!--inicio Modificado por CDV 13/04/2016-->	
+		<!--VERONICA RESTREPO-->	
+        <validacion clase='LongitudCampo' Glosa='GE0065' >
+          <param nombre='LongitudMinima' valor='7' />
+          <param nombre='LongitudMaxima' valor='10' />
+        </validacion>
+		<!--Fin Modificado por CDV 13/04/2016-->
+        <validacion clase='FormatoCampo' Glosa='GE0019' >
+          <param nombre='ExpresionRegular' valor='^[0-9 ]*$' />
+        </validacion>
+      </Campo>
+
+      <Campo orden='15' descripcion='Código departamento' >
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+		
+		<validacion clase='LongitudCampo' Glosa='GE0031' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='2' />
+        </validacion>
+		
+        <validacion clase='ValorNoPermitidoIgnoreCase' Glosa='GE0032' >
+          <param nombre='Tabla' valor='Departamentos' />
+        </validacion>
+      </Campo>
+
+      <Campo orden='16' descripcion='Código municipio' >
+        <validacion clase='CampoObligatorio' Glosa='GE0004' />
+		
+		<validacion clase='LongitudCampo' Glosa='GE0034' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='3' />
+        </validacion>		
+		
+		<validacion clase='MunicipioDependiente' Glosa='GE0033' >
+			<param nombre='Municipios' valor='Municipios' />
+			<param nombre='Departamentos' valor='Departamentos' />
+			<param nombre='CampoDepartamento' valor='15' />
+		</validacion>      
+      </Campo>
+
+      <Campo orden='17' descripcion='Tipo documento victima'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+		
+		<validacion clase='LongitudCampo' Glosa='GE0031' >
+          <param nombre='LongitudMinima' valor='1' />
+          <param nombre='LongitudMaxima' valor='2' />
+        </validacion>
+		
+        <validacion clase='ValorNoPermitidoIgnoreCase' Glosa='GE0047' >
+          <param nombre='Tabla' valor='TipoDocumentoVictima' />
+        </validacion>
+      </Campo>
+
+      <Campo orden='18' descripcion='Numero documento victima '>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' /> 
+		<validacion clase='LongitudCampo' Glosa='GE0044'>
+		  <param nombre='LongitudMinima' valor='3' /> 
+		  <param nombre='LongitudMaxima' valor='8' /> 
+		  <param nombre='DependenciaCampo' valor='17' /> 
+		  <param nombre='ValorDependenciaCampo' valor='CE' /> 
+		</validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0044'>
+		  <param nombre='LongitudMinima' valor='3' /> 
+		  <param nombre='LongitudMaxima' valor='10' /> 
+		  <param nombre='DependenciaCampo' valor='17' /> 
+		  <param nombre='ValorDependenciaCampo' valor='CC' /> 
+		</validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0044'>
+		  <param nombre='LongitudMinima' valor='3' /> 
+		  <param nombre='LongitudMaxima' valor='11' /> 
+		  <param nombre='DependenciaCampo' valor='17' /> 
+		  <param nombre='ValorDependenciaCampo' valor='CD,TI,RC' /> 
+		</validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0044'>
+		  <param nombre='LongitudMinima' valor='3' /> 
+		  <param nombre='LongitudMaxima' valor='16' /> 
+		  <param nombre='DependenciaCampo' valor='17' /> 
+		  <param nombre='ValorDependenciaCampo' valor='PA' /> 
+		</validacion>
+		<validacion clase="FormatoCampo" Glosa="GE0019" >
+            <param nombre='ExpresionRegular' valor='^[0-9]*$' />
+            <param nombre="DependenciaCampo" valor="17" />
+            <param nombre="ValorDependenciaCampo" valor="CC" />
+        </validacion>
+		<validacion clase="FormatoCampo" Glosa="GE0044" >
+            <param nombre='ExpresionRegular' valor='^[0-9a-zA-Z]*$' />
+            <param nombre="DependenciaCampo" valor="17" />
+            <param nombre="ValorDependenciaCampo" valor="PA,CE" />
+        </validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0044' >
+			<param nombre='LongitudMinima' valor='1' />
+			<param nombre='LongitudMaxima' valor='16' />
+			<param nombre='DependenciaCampo' valor='17' />
+			<param nombre='ValorDependenciaCampo' valor='AS' /> 
+		</validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0044' >
+			<param nombre='LongitudMinima' valor='1' />
+			<param nombre='LongitudMaxima' valor='16' />
+			<param nombre='DependenciaCampo' valor='17' />
+			<param nombre='ValorDependenciaCampo' valor='MS' /> 
+		</validacion>
+		<!--
+		<validacion clase='FormatoCampo' Glosa='GND0002'>
+		  <param nombre='ExpresionRegular' valor='^[0-9a-zA-Z]*$' /> 
+		  <param nombre='DependenciaCampo' valor='17' /> 
+		  <param nombre='ValorDependenciaCampo' valor='CE' /> 
+		</validacion>
+		<validacion clase='FormatoCampo' Glosa='GND0001'>
+		  <param nombre='ExpresionRegular' valor='^[0-9]*$' /> 
+		  <param nombre='DependenciaCampo' valor='17' /> 
+		  <param nombre='ValorDependenciaCampo' valor='CC' /> 
+		</validacion>
+		HJOM REQ A20249 
+		<validacion clase='FormatoCampo' Glosa='GND0003'>
+		  <param nombre='ExpresionRegular' valor='^[0-9]*$' /> 
+		  <param nombre='DependenciaCampo' valor='17' /> 
+		  <param nombre='ValorDependenciaCampo' valor='PA,TI,RC' /> 
+		</validacion>	
+		<validacion clase='FormatoCampo' Glosa='GND0005'>
+		  <param nombre='ExpresionRegular' valor='^([0-9]{5})(S|I|D|s|i|d|NN|nn|0|1|2|3|4|5|6|7|8|9)([0-9]*)$' /> 
+		  <param nombre='DependenciaCampo' valor='17' /> 
+		  <param nombre='ValorDependenciaCampo' valor='AS' /> 
+		</validacion>
+		<validacion clase='FormatoCampo' Glosa='GND0005'>
+		  <param nombre='ExpresionRegular' valor='^([0-9]{5})(I|D|A|i|d|a|NN|nn|0|1|2|3|4|5|6|7|8|9)([0-9]*)$' /> 
+		  <param nombre='DependenciaCampo' valor='17' /> 
+		  <param nombre='ValorDependenciaCampo' valor='MS' /> 
+		</validacion>
+			<validacion clase='EnRangoValoresNumerico' Glosa='GND0002'>
+		  <param nombre='ValorMinimo' valor='0' /> 
+		  <param nombre='ValorMaximo' valor='315000' /> 
+		  <param nombre='DependenciaCampo' valor='17' /> 
+		  <param nombre='ValorDependenciaCampo' valor='CE' /> 
+		</validacion>
+		-->
+      </Campo>
+
+      <Campo orden='19' descripcion='Primer nombre victima '>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0045' >
+          <param nombre='LongitudMinima' valor='2' />
+          <param nombre='LongitudMaxima' valor='20' />
+        </validacion>
+        <validacion clase='FormatoCampo' Glosa='GE0046' >
+          <param nombre='ExpresionRegular' valor='^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñ ]*$' />
+        </validacion>
+		 <validacion clase='CampoObligatorio' Glosa='GE0051' >
+        </validacion>
+      </Campo>
+    
+      <Campo orden='20' descripcion='Segundo nombre victima '>
+        <validacion clase='LongitudCampo' Glosa='GE0052' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='30' />
+        </validacion>
+        <validacion clase='FormatoCampo' Glosa='GE0046' >
+          <param nombre='ExpresionRegular' valor='^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñ ]*$' />
+        </validacion>
+      </Campo>
+
+      <Campo orden='21' descripcion='Primer apellido victima ' >
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+		<validacion clase='CampoObligatorio' Glosa='GE0051' >
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0045' >
+          <param nombre='LongitudMinima' valor='2' />
+          <param nombre='LongitudMaxima' valor='20' />
+        </validacion>
+        <validacion clase='FormatoCampo' Glosa='GE0001' >
+          <param nombre='ExpresionRegular' valor='^[0-9a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñ ]*$' />
+        </validacion>
+		<validacion clase='FormatoCampo' Glosa='GE0040' >
+          <param nombre='ExpresionRegular' valor='^[^0-9]*$' />
+        </validacion>
+      </Campo>       
+      
+      <Campo orden='22' descripcion='Segundo apellido victima '>
+        <validacion clase='LongitudCampo' Glosa='GE0052' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='30' />
+        </validacion>
+        <validacion clase='FormatoCampo' Glosa='GE0001' >
+          <param nombre='ExpresionRegular' valor='^[0-9a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñ ]*$' />
+        </validacion>
+		<validacion clase='FormatoCampo' Glosa='GE0040' >
+          <param nombre='ExpresionRegular' valor='^[^0-9]*$' />
+        </validacion>
+      </Campo>
+
+      <Campo orden='23' descripcion='Tipo de evento que sucita la movilizacion'>
+        <validacion clase='CampoObligatorio' Glosa='GE0048' >
+        </validacion>
+        <validacion clase='ValorNoPermitidoIgnoreCase' Glosa='GE0042' >
+          <param nombre='Tabla' valor='ClasificacionEvento' />
+        </validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0041' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='1' />
+        </validacion>
+      </Campo>
+
+      <Campo orden='24' descripcion='Dirección donde recoge la victima'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0030' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='40' />
+        </validacion>
+		<!--inicio Modificado por CDV 13/04/2016-->	
+		<!--VERONICA RESTREPO-->	
+		<validacion clase='FormatoCampo' Glosa='GE0053' >
+          <param nombre='ExpresionRegular' valor='^[0-9a-zA-ZñÑ\-\# ]*$' />
+        </validacion>
+		<!--Fin Modificado por CDV 13/04/2016-->
+      </Campo>
+
+      <Campo orden='25' descripcion='Código departamento'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+		 <validacion clase='LongitudCampo' Glosa='GE0031' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='2' />
+        </validacion>
+        <validacion clase='ValorNoPermitidoIgnoreCase' Glosa='GE0032' >
+          <param nombre='Tabla' valor='Departamentos' />
+        </validacion>
+      </Campo>    
+
+      <Campo orden='26' descripcion='Código municipio'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+	  <validacion clase='MunicipioDependiente' Glosa='GE0033' >
+	    <param nombre='Municipios' valor='Municipios' />
+	    <param nombre='Departamentos' valor='Departamentos' />
+	    <param nombre='CampoDepartamento' valor='25' />
+	  </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0034' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='3' />
+        </validacion>      
+      </Campo>
+
+      <Campo orden='27' descripcion='Zona'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+        <validacion clase='ValorNoPermitidoIgnoreCase' Glosa='GE0042' >
+          <param nombre='Tabla' valor='Zona' />
+        </validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0041' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='1' />
+        </validacion>  
+      </Campo>
+
+      <Campo orden='28' descripcion='Fecha de traslado'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0043' >
+          <param nombre='LongitudMinima' valor='1' />
+          <param nombre='LongitudMaxima' valor='10' />
+        </validacion>
+        <validacion clase='FechaInvalidaCampoObligatorio' Glosa='GE0007' >
+        </validacion> 
+		<validacion clase='FechaInvalidaCampoObligatorio' Glosa='GE0014' >
+        </validacion> 		
+        <validacion clase='FechaCampoMayorAOtra' Glosa='GE0054' >
+        </validacion>    
+      </Campo>
+
+      <Campo orden='29' descripcion='Hora de traslado'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0050' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='5' />
+        </validacion>
+        <validacion clase='HoraInvalida' Glosa='GE0008' >
+        </validacion> 
+      </Campo>
+
+      <Campo orden='30' descripcion='Código de habilitación IPS que atendió la victima'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+		<validacion clase='ValorNoPermitidoIgnoreCase' Glosa='GE0038' >
+			<param nombre='Tabla' valor='CodigoHabilitacionIps' />
+		</validacion>		
+		
+		<validacion clase='LongitudCampo' Glosa='GE0036' >
+          <param nombre='LongitudMinima' valor='1' />
+          <param nombre='LongitudMaxima' valor='12' />
+        </validacion>	
+
+		<validacion clase='LongitudCampo' Glosa='GE0037' >
+          <param nombre='LongitudMinima' valor='12' />
+          <param nombre='LongitudMaxima' valor='12' />
+        </validacion>
+
+        <validacion clase='FormatoCampo' Glosa='GE0024' >
+          <param nombre='ExpresionRegular' valor='^[0-9]*$' />>
+        </validacion>			
+      </Campo>
+
+      <Campo orden='31' descripcion='Código departamento'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+        <validacion clase='ValorNoPermitidoIgnoreCase' Glosa='GE0032' >
+          <param nombre='Tabla' valor='Departamentos' />
+        </validacion>
+		<validacion clase='LongitudCampo' Glosa='GE0031' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='2' />
+        </validacion>
+      </Campo>
+
+      <Campo orden='32' descripcion='Código municipio'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+	  <validacion clase='MunicipioDependiente' Glosa='GE0033' >
+	    <param nombre='Municipios' valor='Municipios' />
+	    <param nombre='Departamentos' valor='Departamentos' />
+	    <param nombre='CampoDepartamento' valor='31' />
+	  </validacion> 
+		<validacion clase='LongitudCampo' Glosa='GE0034' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='3' />
+        </validacion>	  
+      </Campo>
+
+      <Campo orden='33' descripcion='Total Folios'>
+        <validacion clase='CampoObligatorio' Glosa='GE0004' >
+        </validacion>
+        <validacion clase='LongitudCampo' Glosa='GE0034' >
+          <param nombre='LongitudMinima' valor='0' />
+          <param nombre='LongitudMaxima' valor='3' />
+        </validacion>
+        <validacion clase='FormatoCampo' Glosa='GE0001' >
+          <param nombre='ExpresionRegular' valor='^[0-9]*$' />
+        </validacion>
+      </Campo>
+
+    </Archivo>
+    </Archivos>
+  <Tablas>
+    <Tabla orden='0' Descripcion='Departamentos' Tabla='Departamentos' Nodos='0' />
+    <Tabla orden='1' Descripcion='Glosas' Tabla='GlosasFURTRAN' />
+    <Tabla orden='2' Descripcion='Municipios' Tabla='Municipios' Nodos='0,1' />
+    <Tabla orden='3' Descripcion='Tipo de Servicio Vehiculo FURTRAN' Tabla='TipoDeServicioFURTRAN' Nodos='0' />
+    <Tabla orden='4' Descripcion='Tipo de Identificacion Reclamante' Tabla='TipoDocumentoReclamante' Nodos='0' />
+    <Tabla orden='5' Descripcion='Tipo de Identificacion Victima' Tabla='TipoDocumentoVictima' Nodos='0,1' />
+    <Tabla orden='6' Descripcion='Zona' Tabla='Zona' Nodos='0' />
+	<Tabla orden='7' Descripcion='RG' Tabla= 'RG' Nodos='0'/>
+	<Tabla orden='8' Descripcion='Registro IPS remitente' Tabla='EstadoRegistroIps' Nodos='0,1' />
+  </Tablas>
+</TipoFormulario>

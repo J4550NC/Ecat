@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.3" maxVersion="1.3" type="org.netbeans.modules.form.forminfo.JDialogFormInfo">
+  <Properties>
+    <Property name="title" type="java.lang.String" value="Tablas de Referencia"/>
+    <Property name="name" type="java.lang.String" value="frmTablaReferencia" noResource="true"/>
+    <Property name="resizable" type="boolean" value="false"/>
+  </Properties>
+  <SyntheticProperties>
+    <SyntheticProperty name="formSizePolicy" type="int" value="1"/>
+  </SyntheticProperties>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_layoutCodeTarget" type="java.lang.Integer" value="2"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+  </AuxValues>
+
+  <Layout>
+    <DimensionLayout dim="0">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jScrollPanelInfo" alignment="0" pref="554" max="32767" attributes="1"/>
+                  <Group type="103" alignment="0" groupAlignment="0" max="-2" attributes="0">
+                      <Component id="jSeparator" alignment="0" pref="554" max="32767" attributes="1"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Component id="jLblReferencia" min="-2" pref="131" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
+                          <Component id="jCbBTablaReferencia" min="-2" pref="243" max="-2" attributes="0"/>
+                      </Group>
+                  </Group>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+    <DimensionLayout dim="1">
+      <Group type="103" groupAlignment="0" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLblReferencia" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jCbBTablaReferencia" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jSeparator" min="-2" max="-2" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+              <Component id="jScrollPanelInfo" pref="306" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
+          </Group>
+      </Group>
+    </DimensionLayout>
+  </Layout>
+  <SubComponents>
+    <Component class="javax.swing.JComboBox" name="jCbBTablaReferencia">
+      <Properties>
+        <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+          <StringArray count="4">
+            <StringItem index="0" value="Item 1"/>
+            <StringItem index="1" value="Item 2"/>
+            <StringItem index="2" value="Item 3"/>
+            <StringItem index="3" value="Item 4"/>
+          </StringArray>
+        </Property>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLblReferencia">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Tabla Referencia"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSeparator" name="jSeparator">
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollPanelInfo">
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTable" name="jtbGlosas">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
+              <Table columnCount="2" rowCount="4">
+                <Column editable="false" title="Glosa" type="java.lang.String"/>
+                <Column editable="false" title="Descripcion" type="java.lang.String"/>
+              </Table>
+            </Property>
+            <Property name="autoResizeMode" type="int" value="0"/>
+            <Property name="autoscrolls" type="boolean" value="false"/>
+            <Property name="tableHeader" type="javax.swing.table.JTableHeader" editor="org.netbeans.modules.form.ComponentChooserEditor">
+              <ComponentRef name="null"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_InitCodePost" type="java.lang.String" value="          TreeMap tree=new TreeMap(PropertiesManager.getGlosasDescripcion());&#xa;        java.util.Set ks=tree.keySet();&#xa;            jtbGlosas.setModel(new javax.swing.table.DefaultTableModel(&#xa;            ks.size(), 2&#xa;            &#xa;        ) {&#xa;            Class[] types = new Class [] {&#xa;                &#xa;                java.lang.String.class, java.lang.String.class&#xa;            };&#xa;            &#xa;            String ColNames[]={&quot;Glosa&quot;, &quot;Descripcion&quot;};&#xa;            public String getColumnName(int col) { return ColNames[col].toString(); }&#xa;            &#xa;            boolean[] canEdit = new boolean [] {&#xa;                false, false&#xa;            };&#xa;&#xa;            public Class getColumnClass(int columnIndex) {&#xa;                return types [columnIndex];&#xa;            }&#xa;&#xa;            public boolean isCellEditable(int rowIndex, int columnIndex) {&#xa;                return canEdit [columnIndex];&#xa;            }&#xa;        });&#xa;        &#xa;        Iterator iter=ks.iterator();&#xa;        jtbGlosas.getColumnModel().getColumn(0).setPreferredWidth(60);&#xa;        jtbGlosas.getColumnModel().getColumn(1).setPreferredWidth(710);&#xa;        int i=0;&#xa;        while (iter.hasNext()){&#xa;            String value=(String)iter.next();&#xa;            jtbGlosas.setValueAt(value, i,0);&#xa;            jtbGlosas.setValueAt(tree.get(value), i,1);&#xa;            i++;&#xa;        }      "/>
+          </AuxValues>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>
